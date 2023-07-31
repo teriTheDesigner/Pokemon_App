@@ -1,8 +1,35 @@
 import Card from "./components/PokeCard";
-export default function Home() {
+import Filtering from "./components/Filtering";
+import Sorting from "./components/Sorting";
+import ContextProvider from "./components/Context";
+export default async function Home() {
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=30");
+  const data = await res.json();
+
+  const pokemonData = await Promise.all(
+    data.results.map(async (pokemon) => {
+      const res = await fetch(pokemon.url);
+      const pokemonData = await res.json();
+      const typeNames = pokemonData.types.map((type) => type.type.name);
+
+      return {
+        pokemonData: pokemonData,
+        name: pokemon.name,
+        imageUrl: pokemonData.sprites.other["official-artwork"].front_default,
+        desc: pokemonData.weight,
+        exp: pokemonData.base_experience,
+        types: typeNames,
+      };
+    })
+  );
+
   return (
     <main>
-      <Card></Card>
+      <ContextProvider>
+        <Sorting></Sorting>
+        <Filtering></Filtering>
+        <Card></Card>
+      </ContextProvider>
     </main>
   );
 }
