@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useContext } from "react";
 
 export default function Sorting() {
   return (
