@@ -3,7 +3,7 @@ import Filtering from "./components/Filtering";
 import Sorting from "./components/Sorting";
 import ContextProvider from "./components/Context";
 export default async function Home() {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=30");
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=5");
   const data = await res.json();
 
   const pokemonData = await Promise.all(
@@ -23,12 +23,18 @@ export default async function Home() {
     })
   );
 
+  const initialState = {
+    pokemons: [],
+    filter: "",
+    sort: "",
+    pokemonData: pokemonData,
+    age: 1,
+  };
+
   return (
     <main>
-      <ContextProvider>
+      <ContextProvider initialState={initialState}>
         <Sorting></Sorting>
-        <Filtering></Filtering>
-        <Card></Card>
       </ContextProvider>
     </main>
   );
