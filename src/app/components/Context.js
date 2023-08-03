@@ -7,15 +7,17 @@ export const DispatchContext = createContext();
 const pokeReducer = (state, action) => {
   switch (action.type) {
     case "FILTER":
-      let filteredPokemons = [...state.pokemonData];
+      let filteredPokemons = state.pokemonData;
       const filterBy = action.filterBy;
 
-      filteredPokemons =
-        filterBy === "All"
-          ? state.pokemonData
-          : state.pokemonData.filter((pokemon) =>
-              pokemon.types.includes(filterBy)
-            );
+      if (filterBy === "favorites") {
+        filteredPokemons = state.favorites;
+      } else if (filterBy !== "All") {
+        filteredPokemons = state.pokemonData.filter((pokemon) =>
+          pokemon.types.includes(filterBy)
+        );
+      }
+
       return {
         ...state,
         pokemons: filteredPokemons,
@@ -47,6 +49,30 @@ const pokeReducer = (state, action) => {
         pokemons: sortedPokemons,
         sort: action.sortBy,
       };
+
+    case "FAVORITE":
+      const favoritePokemon = state.pokemons.find(
+        (pokemon) => pokemon.name === action.name
+      );
+      if (favoritePokemon) {
+        // Check if the favorite is already in the favorites array
+        const isAlreadyFavorited = state.favorites.some(
+          (favPokemon) => favPokemon.name === favoritePokemon.name
+        );
+
+        // If it's not favorited, add it to the favorites array; otherwise, remove it
+        const updatedFavorites = isAlreadyFavorited
+          ? state.favorites.filter(
+              (favPokemon) => favPokemon.name !== favoritePokemon.name
+            )
+          : [...state.favorites, favoritePokemon];
+
+        return {
+          ...state,
+          favorites: updatedFavorites,
+        };
+      }
+      return state;
     default:
       return state;
   }
