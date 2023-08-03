@@ -6,12 +6,6 @@ export const DispatchContext = createContext();
 
 const pokeReducer = (state, action) => {
   switch (action.type) {
-    case "OLDER":
-      return {
-        ...state,
-        age: state.age + 1,
-      };
-
     case "FILTER":
       let filteredPokemons = [...state.pokemonData];
       const filterBy = action.filterBy;

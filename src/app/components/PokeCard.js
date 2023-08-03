@@ -8,23 +8,21 @@ export default function PokeCard() {
   const dispatch = useContext(DispatchContext);
 
   return (
-    <main>
-      <div className=" col-span-4   grid grid-cols-3 gap-3 ">
-        {state.pokemons.map((pokemon) => (
-          <div
-            key={pokemon.name}
-            className="flex flex-col items-center mb-10 border-2 p-3  "
-          >
-            <h2>{pokemon.name.toUpperCase()}</h2>
-            <img src={pokemon.imageUrl} alt={pokemon.name}></img>
-            <div>
-              <p>Weight:{pokemon.desc}</p>
-              <p>XP: {pokemon.exp} </p>
-              <p>Type: {pokemon.types.join(", ")}</p>
-            </div>
+    <div className="  col-start-2 col-end-6 top-20   grid grid-cols-4 gap-4 ">
+      {state.pokemons.map((pokemon) => (
+        <div
+          key={pokemon.name}
+          className="flex flex-col items-center mb-10 border-2 p-3 h-fit  "
+        >
+          <h2>{pokemon.name.toUpperCase()}</h2>
+          <img src={pokemon.imageUrl} alt={pokemon.name}></img>
+          <div>
+            <p>Weight:{pokemon.desc}</p>
+            <p>XP: {pokemon.exp} </p>
+            <p>Type: {pokemon.types.join(", ")}</p>
           </div>
-        ))}
-      </div>
-    </main>
+        </div>
+      ))}
+    </div>
   );
 }

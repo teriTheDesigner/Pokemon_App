@@ -13,8 +13,8 @@ export default function Filtering() {
   };
 
   return (
-    <aside className=" col-span-1 absolute sticky  w-40 h-screen top-0 left-0 border-2">
-      <div className="relative sticky w-full h-1/2 border-2 flex flex-col">
+    <aside className="   sticky  w-40 h-screen top-0 left-0 border-2 overflow-clip">
+      <div className=" sticky w-full h-1/2  top-20 flex flex-col">
         <button onClick={() => filterPokemons("All")}>All Types</button>
         <button onClick={() => filterPokemons("grass")}>Grass</button>
         <button onClick={() => filterPokemons("poison")}>Poison</button>

@@ -3,7 +3,7 @@ import Sorting from "./components/Sorting";
 import ContextProvider from "./components/Context";
 import PokeCard from "./components/PokeCard";
 export default async function Home() {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=5");
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=200");
   const data = await res.json();
 
   const pokemonData = await Promise.all(
@@ -28,12 +28,12 @@ export default async function Home() {
     filter: "",
     sort: "",
     pokemonData: pokemonData,
-    age: 1,
+
     favorites: [],
   };
 
   return (
-    <main>
+    <main className="grid grid-cols-5 mr-8">
       <ContextProvider initialState={initialState}>
         <Sorting></Sorting>
         <Filtering></Filtering>
