@@ -13,13 +13,13 @@ const pokeReducer = (state, action) => {
       };
 
     case "FILTER":
-      let filteredPokemons = [...state.pokemons];
+      let filteredPokemons = [...state.pokemonData];
       const filterBy = action.filterBy;
 
       filteredPokemons =
         filterBy === "All"
-          ? state.pokemons
-          : state.pokemons.filter((pokemon) =>
+          ? state.pokemonData
+          : state.pokemonData.filter((pokemon) =>
               pokemon.types.includes(filterBy)
             );
       return {
