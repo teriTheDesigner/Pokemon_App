@@ -13,11 +13,32 @@ export default function Sorting() {
 
   return (
     <main className="col-span-5">
-      <div className=" flex justify-center gap-12 items-center  h-20">
-        <button onClick={() => sortPokemons("weight")}>Weight</button>
-        <button onClick={() => sortPokemons("experience")}>XP</button>
-        <button onClick={() => sortPokemons("nameAZ")}>A-Z</button>
-        <button onClick={() => sortPokemons("nameZA")}>Z-A</button>
+      <div className=" flex justify-center gap-12 items-center text-xs leading-5 text-slate-400  h-20">
+        <p className="text-slate-100">Sort by: </p>
+        <button
+          className="hover:text-slate-100"
+          onClick={() => sortPokemons("weight")}
+        >
+          Weight
+        </button>
+        <button
+          className="hover:text-slate-100"
+          onClick={() => sortPokemons("experience")}
+        >
+          XP
+        </button>
+        <button
+          className="hover:text-slate-100"
+          onClick={() => sortPokemons("nameAZ")}
+        >
+          A-Z
+        </button>
+        <button
+          className="hover:text-slate-100"
+          onClick={() => sortPokemons("nameZA")}
+        >
+          Z-A
+        </button>
       </div>
     </main>
   );

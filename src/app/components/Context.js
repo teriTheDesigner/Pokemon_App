@@ -55,12 +55,10 @@ const pokeReducer = (state, action) => {
         (pokemon) => pokemon.name === action.name
       );
       if (favoritePokemon) {
-        // Check if the favorite is already in the favorites array
         const isAlreadyFavorited = state.favorites.some(
           (favPokemon) => favPokemon.name === favoritePokemon.name
         );
 
-        // If it's not favorited, add it to the favorites array; otherwise, remove it
         const updatedFavorites = isAlreadyFavorited
           ? state.favorites.filter(
               (favPokemon) => favPokemon.name !== favoritePokemon.name
