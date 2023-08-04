@@ -14,7 +14,7 @@ export default function Filtering() {
 
   return (
     <aside className="   sticky  w-40 h-screen top-0 left-0 border-r-2  ">
-      <div className=" text-xs leading-5 sticky w-full h-1/2  top-20 flex flex-col items-end pr-8 text-slate-400 ">
+      <div className=" text-sm leading-5 sticky w-full h-1/2  top-20 flex flex-col items-end pr-8 text-slate-400 ">
         <button
           className="hover:text-slate-100"
           onClick={() => filterPokemons("favorites")}
