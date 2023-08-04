@@ -13,7 +13,7 @@ export default function Sorting() {
 
   return (
     <main className="col-span-5">
-      <div className=" flex justify-center gap-12 items-center text-sm leading-5 text-slate-400  h-20">
+      <div className=" flex justify-center gap-12 items-center text-base  text-slate-400  h-20">
         <p className="text-slate-100">Sort by: </p>
         <button
           className="hover:text-slate-100"
