@@ -33,7 +33,7 @@ export default async function Home() {
   };
 
   return (
-    <main className="grid grid-cols-5 mr-8">
+    <main className="grid grid-cols-5 m-8">
       <ContextProvider initialState={initialState}>
         <Sorting></Sorting>
         <Filtering></Filtering>

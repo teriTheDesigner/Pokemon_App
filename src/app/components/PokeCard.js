@@ -28,7 +28,10 @@ export default function PokeCard() {
         >
           <div className="flex gap-6">
             <h2>{pokemon.name.toUpperCase()}</h2>
-            <button onClick={() => addToFavorites(pokemon.name)}>
+            <button
+              className="text-xl"
+              onClick={() => addToFavorites(pokemon.name)}
+            >
               {favoritedPokemons[pokemon.name] ? "❤️" : "♡"}
             </button>
           </div>
