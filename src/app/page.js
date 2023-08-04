@@ -3,7 +3,7 @@ import Sorting from "./components/Sorting";
 import ContextProvider from "./components/Context";
 import PokeCard from "./components/PokeCard";
 export default async function Home() {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=50");
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=30");
   const data = await res.json();
 
   const pokemonData = await Promise.all(
